@@ -10,7 +10,7 @@ edition = "2021"
 
 [features]
 big_integer = ["dep:num-bigint"]
-default = ["derive", "nif_version_2_15", "allocator"]
+default = ["derive", "nif_version_2_15"]
 derive = ["rustler_codegen"]
 alternative_nif_init_name = []
 allocator = []

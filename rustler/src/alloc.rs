@@ -1,5 +1,9 @@
 use std::alloc::{GlobalAlloc, Layout};
 
+#[cfg(feature = "allocator")]
+#[global_allocator]
+static ALLOCATOR: EnifAllocator = EnifAllocator;
+
 /// Allocator implementation that forwards all allocation calls to Erlang's allocator. Allows the
 /// memory usage to be tracked by the BEAM.
 pub struct EnifAllocator;

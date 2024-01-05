@@ -30,11 +30,6 @@ pub mod wrapper;
 pub mod codegen_runtime;
 
 mod alloc;
-pub use alloc::EnifAllocator;
-
-#[cfg(feature = "allocator")]
-#[global_allocator]
-static ALLOCATOR: EnifAllocator = EnifAllocator;
 
 pub use lazy_static;
 
