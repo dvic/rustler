@@ -14,7 +14,6 @@ members = [
 ]
 default-members = [
   "rustler",
-  "rustler_bigint",
   "rustler_codegen",
   "rustler_sys",
 ]
