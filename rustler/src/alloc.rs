@@ -11,10 +11,7 @@ pub struct EnifAllocator;
 unsafe impl GlobalAlloc for EnifAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         // TODO: Check enif_alloc's real alignment
-        if layout.align() > (((((layout.size()) - 1) / 8) + 1) * 8) {
-            return std::ptr::null_mut();
-        }
-        rustler_sys::enif_alloc(layout.size()) as *mut u8
+        rustler_sys::enif_alloc(layout.size().max(layout.align())) as *mut u8
     }
 
     unsafe fn dealloc(&self, ptr: *mut u8, _layout: Layout) {
